@@ -140,60 +140,110 @@ This diagram shows how the player and the administrator interact with the Minesw
 
 
 
+
 ADD ON — Milestone 3
+
 Programming Conventions
+
 1.	Keep files grouped by what they do. Models hold the data, BLL handles the game rules, and the ConsoleApp shows the board and reads input.
+
 2.	Name things clearly and add small comments so future me knows what a method is for.
+
 3.	The BLL is the brain. The models are storage. The UI only prints and reads from the player.
+
 4.	Keep methods focused on one job. RevealCell now handles regular visits and calls flood fill when needed. Other methods include SetupBombs, CountBombsNearby, ToggleFlag, UseRewardPeek, and DetermineGameState.
+
 5.	Check for out-of-bounds or bad input first, then always guide the player with a friendly message.
 ________________________________________
+
 Computer Specs
+
 • Windows 10 or Windows 11
+
 • Visual Studio 2022
+
 • .NET SDK installed
+
 • 8 GB RAM or more
+
 • Git and GitHub account
+
 ________________________________________
+
 Work Log  Milestone 3
+
 Wednesday - Discussion Day
+
 • Posted about recursion and why flood fill works well for zero cells
+
 Total: 40m
+
 Friday
+
 • 6:15–7:30 PM - Added the new RevealCell logic and recursive flood fill
+
 • 7:40–8:30 PM - Updated the console messages for open areas and numbers
+
 Total: 1h 45m
+
 Saturday
+
 • 10:00–11:15 AM - Updated UML and use-case diagram to show flood fill
+
 • 11:30–12:40 PM - Wrote three xUnit tests for flood fill, numbers, and bombs
+
 Total: 2h 25m
+
 Sunday - Discussion Day
+
 • 1:00–1:35 PM - Discussion replies about recursion vs iteration
+
 Total: 35m
+
 Monday
+
 • 5:20–6:45 PM - Cleaned comments, retook screenshots, fixed alignment in console
+
 • 7:00–7:40 PM - Reviewed build and final test run with passes
+
 Total: 2h 05m
+
 Grand Total: 7h 30m
 ________________________________________
 What I added
+
 • A recursive flood fill that reveals empty areas automatically
+
 • Updated RevealCell so it now calls flood fill only when needed
+
 • New xUnit tests that check zero expansion, number-only reveal, and bomb reveal
+
 • Updated UML and use-case diagram to include flood fill as an extended behavior
+
 • Better display messages for empty areas vs numbered cells
+
 OOP principles I used
+
 • Abstraction -The interface describes what the board service can do
+
 • Encapsulation - Data stays in the board and cell classes and the BLL changes it
+
 • Polymorphism - The flood fill uses recursion to repeat the same action on neighbors
+
 • Separation of concerns - UI, rules, and data remain cleanly separated
+
 Tests
 • Three new tests passed: zero expansion, number reveal, and instant loss on bomb
 ________________________________________
+
 Bug Report
+
 • Forgot to block flood fill when a bomb was clicked, fixed
+
 • One test failed at first because a neighbor edge was not counted right, fixed
+
 • Console spacing needed a small adjustment after flood fill revealed many cells
+
 ________________________________________
 Follow-Up Questions
 1.	What was tough?
